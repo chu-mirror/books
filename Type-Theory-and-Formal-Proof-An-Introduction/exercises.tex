@@ -1,0 +1,107 @@
+\def\newex#1{\noindent{\bf #1} }
+\def\ldot{\,.\,}
+\def\alphaeq{=_\alpha}
+\def\betatr{\to_\beta}
+\newex{1.1} (a) $$\eqalign{
+(\lambda x\ldot(((xz)y)(xx)))
+&\equiv\lambda x\ldot(((xz)y)(xx))\cr
+&\equiv\lambda x\ldot((xz)y)(xx)\cr
+&\equiv\lambda x\ldot(xz)y(xx)\cr
+&\equiv\lambda x\ldot xzy(xx)\cr}$$
+(b) $$\eqalign{
+((\lambda x\ldot(\lambda y\ldot(\lambda z\ldot(z((xy)z)))))(\lambda u\ldot u))
+&\equiv(\lambda x\ldot(\lambda y\ldot(\lambda z\ldot(z((xy)z)))))(\lambda u\ldot u)\cr
+&\equiv(\lambda xy\ldot(\lambda z\ldot(z((xy)z))))(\lambda u\ldot u)\cr
+&\equiv(\lambda xyz\ldot(z((xy)z)))(\lambda u\ldot u)\cr
+&\equiv(\lambda xyz\ldot z((xy)z))(\lambda u\ldot u)\cr
+&\equiv(\lambda xyz\ldot z(xyz))(\lambda u\ldot u)\cr}$$
+
+\newex{1.2} (a) Yes. (b) No, $y\in FV(y)$ but $x$ is a binding variable.
+(c) No, $x\in FV(x)$.
+
+\newex{1.3} Given $z\notin FV(x(\lambda z\ldot y))$ and $x\notin FV(\lambda z\ldot y)$, $$
+\eqalign{\lambda x\ldot x(\lambda z\ldot y)
+&\alphaeq \lambda z \ldot (x(\lambda z\ldot y))^{x\to z}\cr
+&\equiv \lambda z \ldot z(\lambda z\ldot y).\cr}$$
+
+\newex{1.4} (a) $$
+\{(\lambda z\ldot zxz)((\lambda y\ldot xy)x),
+(\lambda z\ldot zxz), ((\lambda y\ldot xy)x),
+zxz, (\lambda y\ldot xy), x,
+zx, xy,
+y, z
+\}.$$
+(b) (TODO)\par\noindent
+(c) $$
+\eqalign{
+FV(U)
+&= FV(\lambda z\ldot zxz)\cup FV((\lambda y\ldot xy)x)\cr
+&= (FV(zxz)\!\setminus\!\{z\})\cup(FV(\lambda y\ldot xy)\cup FV(x))\cr
+&= \{x\} \cup \{x\}\cr
+&= \{x\}\cr
+}
+$$
+(d) Given the lemma, $$
+M_1N_1\alphaeq M_2N_2 \iff M_1\alphaeq M_2 \quad\hbox{and}\quad N_1\alphaeq N_2,
+$$ it's easy to reduce the original problems to smaller problems.
+
+\newex{1.5} (a) $$
+\eqalign{
+(\lambda x\ldot y(\lambda y\ldot xy))[y := \lambda z\ldot zx]
+&\equiv\lambda u\ldot (y(\lambda y\ldot uy))[y := \lambda z\ldot zx]\cr
+&\equiv\lambda u\ldot y[y := \lambda z\ldot zx](\lambda y\ldot uy)[y := \lambda z\ldot zx]\cr
+&\equiv\lambda u\ldot (\lambda z\ldot zx)(\lambda v\ldot uv)[y := \lambda z\ldot zx]\cr
+&\equiv\lambda u\ldot (\lambda z\ldot zx)(\lambda v\ldot (uv)[y := \lambda z\ldot zx])\cr
+&\equiv\lambda u\ldot (\lambda z\ldot zx)(\lambda v\ldot uv)\cr
+}
+$$
+(b) $$
+\eqalign{
+((xyz)[x:=y])[y:=z]
+&\equiv((xy)[x:=y]z)[y:=z]\cr
+&\equiv(x[x:=y]yz)[y:=z]\cr
+&\equiv(yyz)[y:=z]\cr
+&\equiv zzz\cr
+}
+$$
+(c) $$
+\eqalign{
+((\lambda x\ldot xyz)[x:=y])[y:=z]
+&\equiv(\lambda u\ldot (uyz)[x:=y])[y:=z]\cr
+&\equiv(\lambda u\ldot (uyz))[y:=z]\cr
+&\equiv\lambda u\ldot (uyz)[y:=z]\cr
+&\equiv\lambda u\ldot uzz\cr
+}
+$$
+(d) $$
+\eqalign{
+(\lambda y\ldot yyx)[x:=yz]
+&\equiv\lambda u\ldot (uux)[x:=yz]\cr
+&\equiv\lambda u\ldot uu(yz)\cr
+}
+$$
+
+\newex{1.6} Try $M:=xy$, $N:=y$, $L:=z$, then $$
+(xy)[x:=y, y:=z]\equiv yz,
+$$
+but $$
+(xy)[x:=y][y:=z]\equiv zz.
+$$
+
+\newex{1.7} (a) $(\lambda z\ldot zxz)((\lambda y\ldot xy)x)$ and $(\lambda y\ldot xy)x$.\par\noindent
+(b) First, $$
+\eqalign{(\lambda z\ldot zxz)((\lambda y\ldot xy)x)
+&\betatr ((\lambda y\ldot xy)x)x((\lambda y\ldot xy)x)\cr
+&\betatr xxx((\lambda y\ldot xy)x)\cr
+&\betatr xxx(xx),\cr}$$
+Second, $$
+\eqalign{(\lambda z\ldot zxz)((\lambda y\ldot xy)x)
+&\betatr ((\lambda y\ldot xy)x)x((\lambda y\ldot xy)x)\cr
+&\betatr ((\lambda y\ldot xy)x)x(xx)\cr
+&\betatr xxx(xx),\cr}$$
+Third, $$
+\eqalign{(\lambda z\ldot zxz)((\lambda y\ldot xy)x)
+&\betatr (\lambda z\ldot zxz)(xx)\cr
+&\betatr xxx(xx),\cr}$$
+
+\bye
