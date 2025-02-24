@@ -1,7 +1,9 @@
 \def\newex#1{\noindent{\bf #1} }
 \def\ldot{\,.\,}
 \def\alphaeq{=_\alpha}
+\def\betaeq{=_\beta}
 \def\betatr{\to_\beta}
+\def\betatrr{\to\!\!\!\!\!\to_\beta}
 \newex{1.1} (a) $$\eqalign{
 (\lambda x\ldot(((xz)y)(xx)))
 &\equiv\lambda x\ldot(((xz)y)(xx))\cr
@@ -103,5 +105,98 @@ Third, $$
 \eqalign{(\lambda z\ldot zxz)((\lambda y\ldot xy)x)
 &\betatr (\lambda z\ldot zxz)(xx)\cr
 &\betatr xxx(xx),\cr}$$
+
+\newex{1.8} We can start from the lemma: $$
+\hbox{if}\quad M \betaeq N \quad\hbox{then}\quad FV(M) = FV(N).
+$$ Of course, $FV(yy) \neq FV(xx)$.
+
+\newex{1.9} (a) $$\eqalign{
+(\lambda xy\ldot x)\,P\,Q
+&\betatr (\lambda y\ldot P) Q\cr
+&\betatr P\cr
+}$$
+$$\eqalign{
+(\lambda xyz\ldot xz(yz))\,P\,Q\,R
+&\betatr (\lambda yz\ldot P\,z(yz))\,Q\,R\cr
+&\betatr (\lambda z\ldot P\,z(Q\,z))\,R\cr
+&\betatr P\,R\,(Q\,R)\cr
+}
+$$
+(b) $$\eqalign{
+(\lambda xyz\ldot xz(yz))\,K\,K
+&\betatr (\lambda yz\ldot K\,z(yz))\,K\cr
+&\betatr (\lambda yz\ldot z)\,K\cr
+&\betatr \lambda z\ldot z\cr
+}$$
+(c) $$\eqalign{
+(\lambda xyz\ldot xz(yz))\,(K\,S)K\,U\,V\,W
+&\betatr (\lambda yz\ldot (K\,S)z(yz))\,K\,U\,V\,W\cr
+&\betatr (\lambda yz\ldot S\,(yz))\,K\,U\,V\,W\cr
+&\betatr (\lambda z\ldot S\,(K\,z))\,U\,V\,W\cr
+&\betatr S\,(K\,U)\,V\,W\cr
+&\betatrr (K\,U)\,W\,(V\,W)\cr
+&\betatrr U\,(V\,W)\cr
+}$$
+(d) $$\eqalign{
+S\,S\,S\,K\,K
+&\betatrr S\,K\,(S\,K)\,K\cr
+&\betatrr K\,K\,(S\,K)\cr
+&\betatrr K\cr
+}$$
+$$\eqalign{
+S\,K\,K\,K
+&\betatrr K\,K\,(K\,K)\cr
+&\betatrr K\cr
+}$$
+
+\newex{1.10} (a) $$
+\eqalign{
+\hbox{\it add}\,\hbox{\it one}\,\hbox{\it one}
+&\betatrr \lambda fx\ldot\hbox{\it one}\,f\,(\hbox{\it one}\,f\,x)\cr
+&\betatrr \lambda fx\ldot f\,(\hbox{\it one}\,f\,x)\cr
+&\betatrr \lambda fx\ldot f\,(f\,x)\cr
+&\equiv\hbox{\it two}
+}
+$$
+(b) (TODO)
+
+\newex{1.11} (SKIP)
+
+\newex{1.12} (SKIP)
+
+\newex{1.13} (a) (SKIP)\par\noindent
+(b) If $n\neq 0$, then there exists $n'$ that $n \equiv \lambda fx\ldot f\,(n'\,x)$,
+$$\eqalign{
+\hbox{\it iszero}\,n
+&\betatr n(\lambda x\ldot \hbox{\it false})\,\hbox{\it true}\cr
+&\equiv (\lambda fx\ldot f\,(n'\,x))(\lambda x\ldot \hbox{\it false})\,\hbox{\it true}\cr
+&\betatr (\lambda x\ldot (\lambda x\ldot \hbox{\it false})\,(n'\,x))\,\hbox{\it true}\cr
+&\betatr (\lambda x\ldot \hbox{\it false})\,(n'\,\hbox{\it true})\cr
+&\betatr \hbox{\it false}.\cr
+}$$
+
+\newex{1.14} (SKIP)
+
+\newex{1.15} Prove it by counting the number of redex.
+
+\newex{1.16} (a) There exists an $\beta$-nf $N$ that $M\betaeq N$, because $M_i\betaeq M$, from
+the transitivity of $\beta$-equivalence, $M_i\betaeq N$. \par\noindent
+(b) $\hbox{\it true}\,\hbox{\it true}\,\Omega$.
+
+\newex{1.17} If $M$ or $N$ has an infinite reduction path, then~$MN$ must also have one, but it's impossible.
+($M\betatr M'$ implies $MN\betatr M'N$)
+
+\newex{1.18} It's easy to prove $M\betaeq N$, then from lemma 1.9.10, $M\betatrr N$.
+
+\newex{1.19} $$
+\eqalign{
+ZM
+&\equiv UUM\cr
+&\betatr M(UUM)\cr
+&\equiv M(ZM)\cr
+}$$
+
+\newex{1.20} (a) Let $L = \lambda m\ldot (\lambda xy\ldot xmy)$, $M = YL$.\par\noindent
+(b) Try to solve $M = \lambda xyz \ldot xyzM$.
 
 \bye
