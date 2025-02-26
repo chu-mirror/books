@@ -4,6 +4,7 @@
 \def\betaeq{=_\beta}
 \def\betatr{\to_\beta}
 \def\betatrr{\to\!\!\!\!\!\to_\beta}
+\def\nextquestion{\par\noindent}
 \newex{1.1} (a) $$\eqalign{
 (\lambda x\ldot(((xz)y)(xx)))
 &\equiv\lambda x\ldot(((xz)y)(xx))\cr
@@ -33,7 +34,7 @@ zxz, (\lambda y\ldot xy), x,
 zx, xy,
 y, z
 \}.$$
-(b) (TODO)\par\noindent
+(b) (TODO)\nextquestion
 (c) $$
 \eqalign{
 FV(U)
@@ -90,7 +91,7 @@ but $$
 (xy)[x:=y][y:=z]\equiv zz.
 $$
 
-\newex{1.7} (a) $(\lambda z\ldot zxz)((\lambda y\ldot xy)x)$ and $(\lambda y\ldot xy)x$.\par\noindent
+\newex{1.7} (a) $(\lambda z\ldot zxz)((\lambda y\ldot xy)x)$ and $(\lambda y\ldot xy)x$.\nextquestion
 (b) First, $$
 \eqalign{(\lambda z\ldot zxz)((\lambda y\ldot xy)x)
 &\betatr ((\lambda y\ldot xy)x)x((\lambda y\ldot xy)x)\cr
@@ -164,7 +165,7 @@ $$
 
 \newex{1.12} (SKIP)
 
-\newex{1.13} (a) (SKIP)\par\noindent
+\newex{1.13} (a) (SKIP)\nextquestion
 (b) If $n\neq 0$, then there exists $n'$ that $n \equiv \lambda fx\ldot f\,(n'\,x)$,
 $$\eqalign{
 \hbox{\it iszero}\,n
@@ -180,7 +181,7 @@ $$\eqalign{
 \newex{1.15} Prove it by counting the number of redex.
 
 \newex{1.16} (a) There exists an $\beta$-nf $N$ that $M\betaeq N$, because $M_i\betaeq M$, from
-the transitivity of $\beta$-equivalence, $M_i\betaeq N$. \par\noindent
+the transitivity of $\beta$-equivalence, $M_i\betaeq N$. \nextquestion
 (b) $\hbox{\it true}\,\hbox{\it true}\,\Omega$.
 
 \newex{1.17} If $M$ or $N$ has an infinite reduction path, then~$MN$ must also have one, but it's impossible.
@@ -196,7 +197,63 @@ ZM
 &\equiv M(ZM)\cr
 }$$
 
-\newex{1.20} (a) Let $L = \lambda m\ldot (\lambda xy\ldot xmy)$, $M = YL$.\par\noindent
+\newex{1.20} (a) Let $L = \lambda m\ldot (\lambda xy\ldot xmy)$, $M = YL$.\nextquestion
 (b) Try to solve $M = \lambda xyz \ldot xyzM$.
+
+\newex{2.1} (a) Not, $xx$ can not be typed.\nextquestion
+(b) $x: A\to A\to B$, $y: A$.\nextquestion
+(c) Not, $x$ receives itself as argument.\nextquestion
+(d) $x: A\to A$, $y: A$.\nextquestion
+(e) $x: A\to B$, $y: (A\to B)\to A$.
+
+\newex{2.2} $(X\to Y)\to X\to Y$.
+
+\newex{2.3} $K: A\to B\to A$, $S: (C\to D\to E)\to(C\to D)\to C\to E$.
+
+\newex{2.4} (a) $x: A\to B$, $y: C\to A$, $z: C$.\nextquestion
+(b) $x: A\to B$, $y: B\to(A\to B)\to C$, $z: A$.
+
+\newex{2.5} (a) $x: (A\to B)\to (A\to C)$, $y: B$, $z: A$.\nextquestion
+(b) Not.
+
+\newex{2.6} (TODO)
+
+\newex{2.7} (a) If $f: A\to B$, $x: A$, then $f\,x: B$. If $g: B\to C$, then $g(f\,x):C$.
+Then if $f: A\to B$, $g: B\to C$, $g\circ f: A\to C$.\nextquestion
+(b) If $A\Rightarrow B$ and $A$, then $B$. If $B\Rightarrow C$, then $C$. Then
+$(A\Rightarrow B)\Rightarrow ((B\Rightarrow C)\Rightarrow (A\Rightarrow C))$.\nextquestion
+(c) (TODO) \nextquestion
+(d) They all follows a similar pattern of {\it appl}, {\it appl}, {\it abst}.
+
+\newex{2.8} (a) $x: \gamma \to \beta$, $y: (\gamma\to\beta)\to\beta$, $z: \gamma$.\nextquestion
+(b) (TODO) \nextquestion
+(c) (TODO) \nextquestion
+(d) (TODO) \nextquestion
+
+\newex{2.9} (TODO)
+
+\newex{2.10} (TODO)
+
+\newex{2.11} (a) $\lambda x: \alpha\to\alpha\to\gamma\ldot\lambda y: \alpha\ldot\lambda z: \beta\ldot xyy$\nextquestion
+(b) $\lambda x: (\alpha\to\gamma)\to\alpha\ldot\lambda y:\alpha\to\gamma\ldot\lambda z:\beta\ldot y(xy)$
+
+\newex{2.12} (a) $\tau=\lambda x:(\alpha\to\beta)\to\alpha\ldot\lambda y:\alpha\to\alpha\to\beta\ldot
+x(\lambda z:\alpha\ldot yzz)$\nextquestion
+(b) $\lambda x:(\alpha\to\beta)\to\alpha\ldot\lambda y:\alpha\to\alpha\to\beta\ldot
+y(\tau xy)(\tau xy)$
+
+\newex{2.13} (a) $\lambda y: \alpha\to\beta\ldot\lambda z:\alpha\ldot xz(yz)$\nextquestion
+(b) $\lambda y:\alpha\ldot\lambda z:\alpha\to\beta\ldot xy(zy)y$\nextquestion
+(c) $\lambda y:\alpha\to\gamma\ldot\lambda z:\beta\to\alpha\ldot x(\lambda u:\beta\ldot y(zu))$
+
+\newex{2.14} $\lambda y:\alpha\ldot\lambda z:\beta\ldot x(\lambda u:\gamma\ldot z)y$
+
+\newex{2.15} (TODO)
+
+\newex{2.16} (TODO)
+
+\newex{2.17} (TODO)
+
+\newex{2.18} (TODO)
 
 \bye
