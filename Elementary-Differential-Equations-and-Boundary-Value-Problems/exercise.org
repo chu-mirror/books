@@ -1,0 +1,112 @@
+:PROPERTIES:
+:header-args:python: :session "calpy" :results silent
+:END:
+
+* Chapter 1: Introduction
+
+#+begin_src python
+  import numpy as np
+  import matplotlib.pyplot as plt
+#+end_src
+
+#+begin_src python
+  def show_direction_field(F, xr, yr):
+      x_vals = np.linspace(xr[0], xr[1], 20)
+      y_vals = np.linspace(yr[0], yr[1], 20)
+      X, Y = np.meshgrid(x_vals, y_vals)
+      M = F(X, Y)
+
+      # Define direction vectors (1, M) and normalize if desired
+      U = np.ones_like(M)
+      V = M
+
+      plt.quiver(X, Y, U, V, angles='xy', scale_units='xy', pivot='middle')
+      plt.gca().set_aspect('auto')
+      plt.xlabel('x')
+      plt.ylabel('y')
+      plt.title('Direction Field with Arrows')
+      plt.show()
+#+end_src
+
+** 1.1
+
+*** 1
+
+#+begin_src python
+  show_direction_field(lambda x, y: 3-2*y, (-1, 1), (-10, 10))
+#+end_src
+
+*** 2
+
+#+begin_src python
+  show_direction_field(lambda x, y: 2*y-3, (-1, 1), (-10, 10))
+#+end_src
+
+*** 3
+
+#+begin_src python
+  show_direction_field(lambda x, y: -1-2*y, (-1, 1), (-10, 10))
+#+end_src
+
+*** 4
+
+#+begin_src python
+  show_direction_field(lambda x, y: 1+2*y, (-1, 1), (-10, 10))
+#+end_src
+
+*** 5
+
+$dy/dt = ay - 2/3a$ for all $a < 0$.
+
+*** 6
+
+$dy/dt = ay - 2a$ for all $a > 0$.
+
+*** 7
+
+#+begin_src python
+  show_direction_field(lambda x, y: y*(4-y), (-1, 1), (-1, 6))
+#+end_src
+
+*** 8
+
+#+begin_src python
+  show_direction_field(lambda x, y: -y*(5-y), (-1, 1), (-1, 6))
+#+end_src
+
+*** 9
+
+#+begin_src python
+  show_direction_field(lambda x, y: y**2, (-1, 1), (-1, 1))
+#+end_src
+
+*** 10
+
+#+begin_src python
+  show_direction_field(lambda x, y: y*(y-2)**2, (-1, 1), (-1, 3))
+#+end_src
+
+*** 11
+
+j
+
+*** 12
+
+c
+
+*** 13
+
+g
+
+*** 14
+
+b
+
+*** 15
+
+h
+
+*** 16
+
+d
+
