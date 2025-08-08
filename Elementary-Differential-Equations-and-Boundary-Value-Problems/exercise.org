@@ -7,9 +7,8 @@
 #+begin_src python
   import numpy as np
   import matplotlib.pyplot as plt
-#+end_src
+  import math
 
-#+begin_src python
   def show_direction_field(F, xr, yr):
       x_vals = np.linspace(xr[0], xr[1], 20)
       y_vals = np.linspace(yr[0], yr[1], 20)
@@ -56,7 +55,7 @@
 
 *** 5
 
-$dy/dt = ay - 2/3a$ for all $a < 0$.
+$dy/dt = ay - {2\over3}a$ for all $a < 0$.
 
 *** 6
 
@@ -109,4 +108,71 @@ h
 *** 16
 
 d
+
+*** 17
+
+(a) $q$: amount of chemical in grams, $t$: passsed time in hours.
+$$ dq/dt = 300 * \Bigl(0.01 - {q\over 1000000}\Bigr) $$.
+
+(b) $10000$ grams, no.
+
+*** 18
+
+$$ dv/dt = -kv^{2/3}$$, assume that the constnat $k$ is $1$:
+
+#+begin_src python
+  show_direction_field(lambda x, y: -y**(2/3), (0, 10), (0, 10))
+#+end_src
+
+*** 19
+
+$T$: the temperature of the object,
+$$ {dT\over dt} = -0.05(T-70) $$.
+
+*** 20
+
+(a) $q$: the amount of the drug,
+$$ {dq\over dt} = 500 - 0.4\,q $$.
+
+(b) $500 / 0.4 = 1250$ mg.
+
+*** 21
+
+(a) $$ {dv\over dt} = g - {\gamma\over m}v^2 $$.
+
+(b) $\sqrt{mg/\gamma}$.
+
+(c) $0.0408$.
+
+(d)
+
+#+begin_src python
+  show_direction_field(lambda x, y: 9.8 - 0.00408 * y**2, (0, 10), (0, 100))
+#+end_src
+
+*** 22
+
+#+begin_src python
+  show_direction_field(lambda x, y: -2 + x - y, (0, 20), (-10, 10))
+#+end_src
+
+*** 23
+
+#+begin_src python
+  show_direction_field(lambda x, y: math.e**x + y, (-2, 10), (-10000, 10000))
+#+end_src
+
+*** 24
+
+#+begin_src python
+  show_direction_field(lambda x, y: 3 * np.sin(x) + 1 + y, (0, 10), (-10, 10))
+#+end_src
+
+*** 25
+
+#+begin_src python
+  show_direction_field(lambda x, y: -(2 * x + y)/(2*y), (0, 10), (-10, 10))
+#+end_src
+
+
 
